@@ -20,9 +20,9 @@ function draw() {
   
   // 翻轉影像
   push();
-  translate((width + capture.width) / 2, 0); // 將畫布原點移到影像右側
+  translate(width / 2, 0); // 將畫布原點移到畫布的中間
   scale(-1, 1); // 水平翻轉
-  image(capture, 0, (height - capture.height) / 2); // 繪製影像
+  image(capture, -capture.width / 2, (height - capture.height) / 2); // 繪製影像，調整位置
   pop();
   
   // 在 overlayGraphics 上繪製內容
