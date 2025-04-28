@@ -10,7 +10,13 @@ function setup() {
 
 function draw() {
   background('#f7d6e0');
+  
+  // 翻轉影像
+  push();
+  translate(width, 0); // 將畫布原點移到右上角
+  scale(-1, 1); // 水平翻轉
   image(capture, (width - capture.width) / 2, (height - capture.height) / 2);
+  pop();
 }
 
 function windowResized() {
