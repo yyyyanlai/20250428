@@ -33,7 +33,8 @@ function draw() {
   for (let x = 0; x < overlayGraphics.width; x += 20) {
     for (let y = 0; y < overlayGraphics.height; y += 20) {
       let col = capture.get(x, y); // 從 capture 取得顏色
-      overlayGraphics.fill(col); // 設定圓的顏色
+      let gray = (red(col) + green(col) + blue(col)) / 3; // 計算灰階值
+      overlayGraphics.fill(gray); // 設定圓的顏色為灰階值
       overlayGraphics.noStroke();
       overlayGraphics.ellipse(x + 10, y + 10, 15, 15); // 繪製圓，中心點偏移 10
     }
