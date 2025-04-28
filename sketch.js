@@ -29,14 +29,17 @@ function draw() {
   overlayGraphics.clear(); // 清除之前的內容
   overlayGraphics.background(0); // 設定背景為黑色
   
-  // 每隔 20 單位繪製圓
+  // 每隔 20 單位繪製方框和圓
   for (let x = 0; x < overlayGraphics.width; x += 20) {
     for (let y = 0; y < overlayGraphics.height; y += 20) {
       let col = capture.get(x, y); // 從 capture 取得顏色
-      let gray = (red(col) + green(col) + blue(col)) / 3; // 計算灰階值
-      overlayGraphics.fill(gray); // 設定圓的顏色為灰階值
+      let g = green(col); // 保留 G 值
+      overlayGraphics.fill(0, g, 100); // 設定方框顏色，R 為 0，G 為原值，B 為 100
       overlayGraphics.noStroke();
-      overlayGraphics.ellipse(x + 10, y + 10, 15, 15); // 繪製圓，中心點偏移 10
+      overlayGraphics.rect(x + 1, y + 1, 18, 18); // 繪製方框，稍微偏移以避免重疊
+      
+      overlayGraphics.fill(0); // 設定圓的顏色為黑色
+      overlayGraphics.ellipse(x + 10, y + 10, 5, 5); // 在方框中心繪製圓
     }
   }
   
