@@ -27,15 +27,17 @@ function draw() {
   
   // 在 overlayGraphics 上繪製內容
   overlayGraphics.clear(); // 清除之前的內容
-  overlayGraphics.fill(255, 0, 0, 150); // 半透明紅色
-  overlayGraphics.noStroke();
-  overlayGraphics.rect(0, 0, overlayGraphics.width, overlayGraphics.height); // 畫一個與影像大小相同的矩形
+  overlayGraphics.background(0); // 設定背景為黑色
   
-  // 顯示文字
-  overlayGraphics.textAlign(CENTER, CENTER);
-  overlayGraphics.textSize(32);
-  overlayGraphics.fill(0); // 黑色文字
-  overlayGraphics.text("這是我的影像", overlayGraphics.width / 2, overlayGraphics.height / 2);
+  // 每隔 20 單位繪製圓
+  for (let x = 0; x < overlayGraphics.width; x += 20) {
+    for (let y = 0; y < overlayGraphics.height; y += 20) {
+      let col = capture.get(x, y); // 從 capture 取得顏色
+      overlayGraphics.fill(col); // 設定圓的顏色
+      overlayGraphics.noStroke();
+      overlayGraphics.ellipse(x + 10, y + 10, 15, 15); // 繪製圓，中心點偏移 10
+    }
+  }
   
   // 將 overlayGraphics 顯示在視訊上方
   image(overlayGraphics, (width - capture.width) / 2, (height - capture.height) / 2);
