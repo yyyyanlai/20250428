@@ -31,6 +31,12 @@ function draw() {
   overlayGraphics.noStroke();
   overlayGraphics.ellipse(overlayGraphics.width / 2, overlayGraphics.height / 2, 100, 100); // 畫一個圓
   
+  // 顯示文字
+  overlayGraphics.textAlign(CENTER, CENTER);
+  overlayGraphics.textSize(32);
+  overlayGraphics.fill(0); // 黑色文字
+  overlayGraphics.text("這是我的影像", overlayGraphics.width / 2, overlayGraphics.height / 2);
+  
   // 將 overlayGraphics 顯示在視訊上方
   image(overlayGraphics, (width - capture.width) / 2, (height - capture.height) / 2);
 }
