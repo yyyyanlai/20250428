@@ -29,7 +29,7 @@ function draw() {
   overlayGraphics.clear(); // 清除之前的內容
   overlayGraphics.fill(255, 0, 0, 150); // 半透明紅色
   overlayGraphics.noStroke();
-  overlayGraphics.ellipse(overlayGraphics.width / 2, overlayGraphics.height / 2, 100, 100); // 畫一個圓
+  overlayGraphics.rect(0, 0, overlayGraphics.width, overlayGraphics.height); // 畫一個與影像大小相同的矩形
   
   // 顯示文字
   overlayGraphics.textAlign(CENTER, CENTER);
